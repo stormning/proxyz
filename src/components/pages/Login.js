@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Input from 'material-ui/Input';
 import InputLabel from 'material-ui/Input/InputLabel';
 import {FormControl, FormGroup, FormLabel} from 'material-ui/Form';
-import {doLogin} from '../actions/loginActions';
+import {doLogin} from '../../actions/LoginActions';
 
 
 //connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])

@@ -16,7 +16,7 @@ const styleSheet = createStyleSheet('SimpleAppBar', {
     },
 });
 
-const ProxyAppBar = ({classes}) => {
+const Header = ({classes}) => {
     return (
         <div className={classes.root}>
             <AppBar className={classes.appBar}>
@@ -28,4 +28,4 @@ const ProxyAppBar = ({classes}) => {
     );
 };
 
-export default withStyles(styleSheet)(ProxyAppBar);
+export default withStyles(styleSheet)(Header);

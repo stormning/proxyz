@@ -4,12 +4,12 @@ import {withStyles, createStyleSheet} from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Grid from 'material-ui/Grid';
 import LoginForm from './Login';
-import ManagerContainer from '../containers/ManagerContainer';
+import Main from '../../containers/MainContainer';
 
 const Dashboard = () => (
-    <ManagerContainer>
+    <Main>
         <h1>this is dashboard</h1>
-    </ManagerContainer>
+    </Main>
 );
 
 export default Dashboard;
