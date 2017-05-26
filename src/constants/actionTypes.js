@@ -1,10 +1,17 @@
-export const MainActions = {
-    CLICK_DRAWER_ICON: "click_drawer_icon",
-    CLICK_DRAWER_ITEM: "click_drawer_item",
-    CLICK_DRAWER_MENU: "click_drawer_menu",
-    CLICK_LOGOUT: "click_logout"
-};
+import keyMirror from 'keymirror'
 
-export const DashBoardActions = {
-    VIEW_MORE: "view_more"
-};
+export const MainActions = keyMirror({
+    CLICK_DRAWER_ICON: null,
+    CLICK_DRAWER_ITEM: null,
+    CLICK_DRAWER_MENU: null,
+    CLICK_LOGOUT: null
+});
+
+export const DashBoardActions = keyMirror({
+    VIEW_MORE: null
+});
+
+export const LoginActions = keyMirror({
+    DO_LOGIN: null,
+    RESET: null
+});

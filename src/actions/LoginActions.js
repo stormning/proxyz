@@ -1,7 +1,7 @@
 import {createAction} from 'redux-actions';
 import {
-
+    LoginActions
 } from '../constants/actionTypes';
 
-export const doLogin = ({userName, password}) => createAction(DO_LOGIN, {userName, password});
-export const loginReset = ({userName, password}) => createAction(LOGIN_RESET);
+export const doLogin = ({userName, password}) => createAction(LoginActions.DO_LOGIN, {userName, password});
+export const reset = ({userName, password}) => createAction(LoginActions.RESET);

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {connect} from 'react-redux';
 //actions
-import {viewMore} from '../actions/DashboardActions';
+import {} from '../actions/MainActions';
 //actionTypes
 import {MainActions} from '../constants/actionTypes';
 //component
@@ -17,9 +17,12 @@ const mapStateToProps = (state) => ({
 
 //methodName and callback(dispatch Action object) map
 const mapDispatchToProps = (dispatch) => ({
-    onClickViewMore: (event) => (
+    onClickDrawerIcon: (event) => (
         dispatch(viewMore())
+    ),
+    onClickDrawerMenu: (event) => (
+        dispatch
     )
-});
+ });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
