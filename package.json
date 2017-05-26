@@ -4,7 +4,7 @@
   "main": "main.js",
   "author": "stormning",
   "scripts": {
-    "watch": "webpack-dev-server --devtool eval --progress --colors",
+    "watch": "webpack-dev-server --devtool eval --progress --colors --history-api-fallback",
     "pack": "build --dir",
     "dist": "build",
     "dev": "electron .",
@@ -36,13 +36,19 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
+    "history": "^4.6.1",
+    "immutable": "^3.8.1",
     "material-ui": "^1.0.0-alpha.15",
     "material-ui-icons": "^1.0.0-alpha.3",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-hot-loader": "^3.0.0-beta.7",
+    "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
-    "react-router-redux": "^4.0.8",
-    "react-tap-event-plugin": "^2.0.1"
+    "react-router-redux": "^5.0.0-alpha.6",
+    "react-tap-event-plugin": "^2.0.1",
+    "redux": "^3.6.0",
+    "redux-actions": "^2.0.3",
+    "redux-immutable": "^4.0.0"
   }
 }

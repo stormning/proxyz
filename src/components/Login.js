@@ -2,6 +2,22 @@ import React, {Component} from 'react';
 import Input from 'material-ui/Input';
 import InputLabel from 'material-ui/Input/InputLabel';
 import {FormControl, FormGroup, FormLabel} from 'material-ui/Form';
+import {doLogin} from '../actions/loginActions';
+
+
+//connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
+
+const mapStateToProps = (state, ownProps) => (
+    {xxx: state.get("")}
+);
+
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        xxx: (...args) => dispatch(actions.xxx(...args)),
+        yyy: (...args) => dispatch(actions.yyy(...args))
+    }
+};
 
 class LoginForm extends Component {
     state = {
