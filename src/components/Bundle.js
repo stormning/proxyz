@@ -11,7 +11,6 @@ class Bundle extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        alert("props");
         if (nextProps.load !== this.props.load) {
             this.load(nextProps)
         }
@@ -23,13 +22,10 @@ class Bundle extends Component {
             mod: null
         });
         props.load((mod) => {
-            // alert(111);
-            console.log(mod);
             this.setState({
                 // handle both es imports and cjs
                 mod: mod.default ? mod.default : mod
             });
-            console.log(this.state)
         })
     }
 
