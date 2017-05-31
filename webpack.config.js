@@ -22,7 +22,7 @@ module.exports = {
         // bundle the client for hot reloading
         // only- means to only hot reload for successful updates
 
-        './src/LoginActions.js'
+        './src/index.js'
     ],
     //output 是放入产生出来的结果的相关参数
     //使打包后的错误信息精确到行
@@ -37,7 +37,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.js?$/,
                 use: ['babel-loader',],
                 exclude: /node_modules/
             },

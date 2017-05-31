@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom';
 import {withStyles, createStyleSheet, MuiThemeProvider} from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import ProxyAppBar from './Header'
 
-import mui from 'material-ui/';
 import Drawer from 'material-ui/Drawer';
 import Pager from 'material-ui/Paper';
 import AppBar from 'material-ui/AppBar';
@@ -22,31 +22,11 @@ const styleSheet = createStyleSheet('FullWidthGrid', theme => ({
     },
 }));
 
-const Main = ({children}) => (
-    <div>
-        <Drawer docked="true" open="true">
-            <Pager>
-                <Typography type="title" colorInherit>
-                    ProxyZ
-                    <span>v1.0-alpha</span>
-                </Typography>
-            </Pager>
-        </Drawer>
-        <AppBar>
-            <Toolbar>
-                <Typography type="title" colorInherit>ProxyZ</Typography>
-            </Toolbar>
-        </AppBar>
-        ${React.Children.only(children)}
-    </div>
-);
-
-
 class Main extends Component {
     render() {
         return (
             <div>
-                <Drawer docked="true" open="true">
+                <Drawer docked open>
                     <Pager>
                         <Typography type="title" colorInherit>
                             ProxyZ

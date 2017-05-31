@@ -6,8 +6,9 @@ import {ConnectedRouter} from 'react-router-redux';
 
 // AppContainer is a necessary wrapper component for HMR
 import {AppContainer} from 'react-hot-loader';
-import store from './store';
-import Routes from './components/Routes';
+import {store, history} from './store';
+import routesConfig from './components/Routes';
+import * as Utils from './components/Utils';
 
 import {withStyles, createStyleSheet, MuiThemeProvider} from 'material-ui/styles';
 
@@ -22,7 +23,7 @@ const render = () => {
             <Provider store={store}>
                 <ConnectedRouter history={history}>
                     <MuiThemeProvider>
-                        <Routes redirectTo="/dashboard"/>
+                        {Utils.renderRoutes(routesConfig)}
                     </MuiThemeProvider>
                 </ConnectedRouter>
             </Provider>

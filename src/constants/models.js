@@ -1,12 +1,17 @@
 import Immutable from 'immutable';
+import keymirror from 'keymirror';
 
 //models
-export const [LoginModel] = ["loginModel"];
+export const models = keymirror({
+    Login: null,
+    Home: null,
+    Dashboard: null
+});
 
 //states
 export const state = Immutable.fromJS(
     {
-        [LoginModel]: {
+        [models.Login]: {
             userName: "",
             password: ""
         }

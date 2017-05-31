@@ -1,18 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 //actions
-import {} from '../actions/MainActions';
 //actionTypes
 import {MainActions} from '../constants/actionTypes';
 //component
-import  Dashboard from '../components/pages/Dashboard';
+import Main from '../components/layouts/Main';
 
 //actionName and state map
 const mapStateToProps = (state) => ({
-    [MainActions.CLICK_DRAWER_ICON]: (state) => {
-        drawer : state.getIn(["drawer"]);
-    }
+    [MainActions.CLICK_DRAWER_ICON]: (state) => state
 });
 
 //methodName and callback(dispatch Action object) map
@@ -23,6 +21,6 @@ const mapDispatchToProps = (dispatch) => ({
     onClickDrawerMenu: (event) => (
         dispatch
     )
- });
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

@@ -1,29 +1,33 @@
 import React from 'react';
-import PropTypes from 'prop-types'
-import {
-    Route,
-    Redirect
-} from 'react-router-dom';
+import HomeContainer from 'bundle-loader?lazy&name=app-[name]!../containers/HomeContainer';
+import DashboardContainer from 'bundle-loader?lazy&name=app-[name]!../containers/DashboardContainer';
 
-import  DashboardContainer from '../containers/DashboardContainer';
+const routesConfig = [
+    {
+        component: HomeContainer,
+        routes: [
+            {
+                path: '/',
+                exact: true,
+                component: HomeContainer
+            },
+            {
+                path: '/dashboard',
+                exact: true,
+                component: DashboardContainer
+            },
+            {
+                path: '/child/:id',
+                component: HomeContainer,
+                routes: [
+                    {
+                        path: '/child/:id/grand-child',
+                        component: HomeContainer
+                    }
+                ]
+            }
+        ]
+    }
+];
 
-const Routes = ({redirectTo, loggedIn = false}) => (
-    <div>
-        <Route exact path="/" render={() => (
-            loggedIn ? (
-                <Redirect to={{pathname: redirectTo}}/>
-            ) : (
-                <Home classes={{root: 'test'}}/>
-            )
-        )}/>
-        <Route path="/dashboard" component={DashboardContainer}/>
-    </div>
-);
-
-Routes.propTypes = {
-    redirectTo: PropTypes.string.isRequired,
-    loggedIn: PropTypes.bool
-};
-
-
-export default Routes;
+export default routesConfig;
