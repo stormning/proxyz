@@ -1,4 +1,4 @@
-import {LoginActions} from '../constants/actionTypes';
+import {LoginActions} from '../constants/ActionTypes';
 import {handleActions} from 'redux-actions';
 const defaultState = {};
 

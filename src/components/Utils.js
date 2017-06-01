@@ -1,6 +1,10 @@
 import React from 'react';
 import Bundle from './Bundle';
+import {bindActionCreators} from 'redux'
 import {Route, Switch} from 'react-router-dom';
+import {connect as _connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
+
 export const lazyComponent = (component) => (
     (props) => (
         <Bundle load={component}>
@@ -24,3 +28,21 @@ export const renderRoutes = (routes) => (
         })
     ) : null
 );
+
+const connect = (statePaths, actions) => {
+    //use immutable js
+    const mapStateToProps = (state) => {
+        let _ts = {};
+        for (let [name, path] of statePaths) {
+            _ts[name] = state.getIn(path);
+        }
+        return _ts;
+    };
+    //dispatch actions
+    const mapDispatchToProps = (dispatch, ownProps) => ({...bindActionCreators(actions, dispatch)});
+    return _connect(mapStateToProps, mapDispatchToProps);
+};
+
+export const connectWithRouter = (component, statePaths, actions) => {
+    withRouter(connect(statePaths, actions)(component))
+};

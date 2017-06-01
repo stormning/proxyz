@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 //actions
 //actionTypes
-import {MainActions} from '../constants/actionTypes';
+import {MainActions} from '../constants/ActionTypes';
 //component
 import Main from '../components/layouts/Main';
 

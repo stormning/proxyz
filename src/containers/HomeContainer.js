@@ -1,28 +1,21 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
 //actions
 import {viewMore} from '../actions/DashboardActions';
 //actionTypes
-import {DashBoardActions} from '../constants/actionTypes';
+import {DashBoardActions} from '../constants/ActionTypes';
 //component
 import  Home from '../components/pages/Home';
 
-import  {withMain} from './MainContainer';
+import * as Utils from '../components/Utils';
 
-//actionName and state map
-const mapStateToProps = (state) => ({
+export default Utils.connect("home",
+    {
         [DashBoardActions.VIEW_MORE]: (state) => {
             return state;
         }
+    }, {
+        onClicklViewMore: (event) => (
+            viewMore()
+        )
     }
 );
-
-//methodName and callback(dispatch Action object) map
-const mapDispatchToProps = (dispatch) => ({
-    onClickViewMore: (event) => (
-        dispatch(viewMore())
-    )
-});
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home));

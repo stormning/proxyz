@@ -1,10 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom'
 //actions
 import {viewMore} from '../actions/DashboardActions';
 //actionTypes
-import {DashBoardActions} from '../constants/actionTypes';
+import {DashBoardActions} from '../constants/ActionTypes';
 //component
 import  Dashboard from '../components/pages/Dashboard';
 
