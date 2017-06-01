@@ -1,7 +1,7 @@
 import React from 'react';
 //actions
 //actionTypes
-import {MainActions} from '../constants/ActionTypes';
+import ActionTypes from '../constants/ActionTypes';
 //component
 import Main from '../components/layouts/Main';
 

@@ -24,15 +24,13 @@ const styleSheet = createStyleSheet('FullWidthGrid', theme => ({
     },
 }));
 
-const Main = ({route = {routes: []}}) => (
+const Main = ({route,version='1.0.0-alpha'}) => (
     <div>
-        {console.log("print route")}
-        {console.log(route)}
         <Drawer docked open>
             <Pager>
                 <Typography type="title" colorInherit>
                     ProxyZ
-                    <span>v1.0-alpha</span>
+                    <span>{version}</span>
                 </Typography>
             </Pager>
         </Drawer>

@@ -1,6 +1,4 @@
 import {createAction} from 'redux-actions';
-import {
-    DashBoardActions
-} from '../constants/ActionTypes';
+import ActionTypes from '../constants/ActionTypes';
 
-export const viewMore = createAction(DashBoardActions.VIEW_MORE);
+export const viewMore = createAction(ActionTypes.DASH_VIEW_MORE);

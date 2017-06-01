@@ -1,17 +1,16 @@
 import keyMirror from 'keymirror'
 
-export const MainActions = keyMirror({
+const ActionsTypes = keyMirror({
+    LOGIN_SUBMIT: null,
+    LOGIN_SUCCESS: null,
+    LOGIN_FAILED: null,
+
+    DASH_VIEW_MORE: null,
+
     CLICK_DRAWER_ICON: null,
     CLICK_DRAWER_ITEM: null,
     CLICK_DRAWER_MENU: null,
     CLICK_LOGOUT: null
 });
 
-export const DashBoardActions = keyMirror({
-    VIEW_MORE: null
-});
-
-export const LoginActions = keyMirror({
-    DO_LOGIN: null,
-    RESET: null
-});
+export default ActionsTypes;
