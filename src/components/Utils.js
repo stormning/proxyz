@@ -2,14 +2,17 @@ import React from 'react';
 import Bundle from './Bundle';
 import {bindActionCreators} from 'redux'
 import {Route, Switch} from 'react-router-dom';
-import {connect as _connect} from 'react-redux';
+import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
 export const lazyComponent = (component) => (
     (props) => (
         <Bundle load={component}>
             {
-                (component) => component(props)
+                (component) => {
+                    console.log(component);
+                    return component(props);
+                }
             }
         </Bundle>
     )
@@ -29,20 +32,24 @@ export const renderRoutes = (routes) => (
     ) : null
 );
 
-const connect = (statePaths, actions) => {
+const isNotEmpty = (test) => test && test.length > 0;
+
+const smartConnect = (statePaths, actions) => {
     //use immutable js
-    const mapStateToProps = (state) => {
-        let _ts = {};
-        for (let [name, path] of statePaths) {
-            _ts[name] = state.getIn(path);
-        }
-        return _ts;
-    };
+    let mapStateToProps = isNotEmpty(statePaths) ?
+        (state) => {
+            let _ts = {};
+            for (let [name, path] of statePaths) {
+                _ts[name] = state.getIn(path);
+            }
+            return _ts;
+        } : null;
     //dispatch actions
-    const mapDispatchToProps = (dispatch, ownProps) => ({...bindActionCreators(actions, dispatch)});
-    return _connect(mapStateToProps, mapDispatchToProps);
+    let mapDispatchToProps = isNotEmpty(actions) ?
+        (dispatch, ownProps) => (
+            {...bindActionCreators(actions, dispatch)}
+        ) : null;
+    return connect(mapStateToProps, mapDispatchToProps);
 };
 
-export const connectWithRouter = (component, statePaths, actions) => {
-    withRouter(connect(statePaths, actions)(component))
-};
+export const connectWithRouter = (component, statePaths, actions) => withRouter(smartConnect(statePaths, actions)(component));

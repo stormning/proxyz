@@ -6,6 +6,9 @@ import {DashBoardActions} from '../constants/ActionTypes';
 //component
 import  Dashboard from '../components/pages/Dashboard';
 
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
+
 //actionName and state map
 const mapStateToProps = (state) => ({
         [DashBoardActions.VIEW_MORE]: (state) => {

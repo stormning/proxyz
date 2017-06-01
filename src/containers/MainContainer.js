@@ -1,27 +1,10 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-
-import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
+import React from 'react';
 //actions
 //actionTypes
 import {MainActions} from '../constants/ActionTypes';
 //component
 import Main from '../components/layouts/Main';
 
-//actionName and state map
-const mapStateToProps = (state) => ({
-    [MainActions.CLICK_DRAWER_ICON]: (state) => state
-});
+import {connectWithRouter} from '../components/Utils';
 
-//methodName and callback(dispatch Action object) map
-const mapDispatchToProps = (dispatch) => ({
-    onClickDrawerIcon: (event) => (
-        dispatch()
-    ),
-    onClickDrawerMenu: (event) => (
-        dispatch()
-    )
-});
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main))
+export default connectWithRouter(Main, null, null);
