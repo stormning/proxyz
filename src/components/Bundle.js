@@ -17,7 +17,6 @@ class Bundle extends Component {
     }
 
     load(props) {
-        // console.log(props);
         this.setState({
             mod: null
         });

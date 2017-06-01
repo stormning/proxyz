@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
@@ -16,11 +17,11 @@ const mapStateToProps = (state) => ({
 //methodName and callback(dispatch Action object) map
 const mapDispatchToProps = (dispatch) => ({
     onClickDrawerIcon: (event) => (
-        dispatch(viewMore())
+        dispatch()
     ),
     onClickDrawerMenu: (event) => (
-        dispatch
+        dispatch()
     )
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main))

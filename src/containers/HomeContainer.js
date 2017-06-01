@@ -6,7 +6,9 @@ import {viewMore} from '../actions/DashboardActions';
 //actionTypes
 import {DashBoardActions} from '../constants/actionTypes';
 //component
-import  Dashboard from '../components/pages/Dashboard';
+import  Home from '../components/pages/Home';
+
+import  {withMain} from './MainContainer';
 
 //actionName and state map
 const mapStateToProps = (state) => ({
@@ -23,4 +25,4 @@ const mapDispatchToProps = (dispatch) => ({
     )
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Dashboard));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home));

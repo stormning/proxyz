@@ -10,6 +10,8 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 
+import * as Utils from '../Utils';
+
 const styleSheet = createStyleSheet('FullWidthGrid', theme => ({
     root: {
         flexGrow: 1,
@@ -22,26 +24,26 @@ const styleSheet = createStyleSheet('FullWidthGrid', theme => ({
     },
 }));
 
-class Main extends Component {
-    render() {
-        return (
-            <div>
-                <Drawer docked open>
-                    <Pager>
-                        <Typography type="title" colorInherit>
-                            ProxyZ
-                            <span>v1.0-alpha</span>
-                        </Typography>
-                    </Pager>
-                </Drawer>
-                <AppBar>
-                    <Toolbar>
-                        <Typography type="title" colorInherit>ProxyZ</Typography>
-                    </Toolbar>
-                </AppBar>
-                ${this.props.children}
-            </div>
-        );
-    }
-}
+const Main = ({route = {routes: []}}) => (
+    <div>
+        {console.log("print route")}
+        {console.log(route)}
+        <Drawer docked open>
+            <Pager>
+                <Typography type="title" colorInherit>
+                    ProxyZ
+                    <span>v1.0-alpha</span>
+                </Typography>
+            </Pager>
+        </Drawer>
+        <AppBar>
+            <Toolbar>
+                <Typography type="title" colorInherit>ProxyZ</Typography>
+            </Toolbar>
+        </AppBar>
+        {
+            Utils.renderRoutes(route.routes)
+        }
+    </div>
+);
 export default withStyles(styleSheet)(Main);

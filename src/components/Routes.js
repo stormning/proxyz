@@ -1,10 +1,11 @@
 import React from 'react';
+import MainContainer from 'bundle-loader?lazy&name=app-[name]!../containers/MainContainer';
 import HomeContainer from 'bundle-loader?lazy&name=app-[name]!../containers/HomeContainer';
 import DashboardContainer from 'bundle-loader?lazy&name=app-[name]!../containers/DashboardContainer';
 
 const routesConfig = [
     {
-        component: HomeContainer,
+        component: MainContainer,
         routes: [
             {
                 path: '/',
@@ -15,16 +16,6 @@ const routesConfig = [
                 path: '/dashboard',
                 exact: true,
                 component: DashboardContainer
-            },
-            {
-                path: '/child/:id',
-                component: HomeContainer,
-                routes: [
-                    {
-                        path: '/child/:id/grand-child',
-                        component: HomeContainer
-                    }
-                ]
             }
         ]
     }
