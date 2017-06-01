@@ -10,7 +10,6 @@ export const lazyComponent = (component) => (
         <Bundle load={component}>
             {
                 (component) => {
-                    console.log(component);
                     return component(props);
                 }
             }
