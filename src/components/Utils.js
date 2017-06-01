@@ -31,11 +31,9 @@ export const renderRoutes = (routes) => (
     ) : null
 );
 
-const isNotEmpty = (test) => test && test.length > 0;
-
 const smartConnect = (statePaths, actions) => {
     //use immutable js
-    let mapStateToProps = isNotEmpty(statePaths) ?
+    let mapStateToProps = statePaths ?
         (state) => {
             let _ts = {};
             for (let [name, path] of statePaths) {
@@ -44,7 +42,7 @@ const smartConnect = (statePaths, actions) => {
             return _ts;
         } : null;
     //dispatch actions
-    let mapDispatchToProps = isNotEmpty(actions) ?
+    let mapDispatchToProps = actions ?
         (dispatch, ownProps) => (
             {...bindActionCreators(actions, dispatch)}
         ) : null;
