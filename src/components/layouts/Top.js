@@ -13,11 +13,11 @@ import '../../../assets/css/pages/top.scss'
 const Top = ({className, title}) => (
     <AppBar className="top">
         <Toolbar>
-            <IconButton contrast>
+            {/*<IconButton contrast>
                 <MenuIcon />
-            </IconButton>
-            <Typography type="title" colorInherit component="h2">Title</Typography>
-            <Button contrast>Login</Button>
+            </IconButton>*/}
+            <Typography type="title" colorInherit component="h2">{title}</Typography>
+            <Button className="loginBtn" contrast>登陆</Button>
         </Toolbar>
     </AppBar>
 );
