@@ -8,6 +8,14 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
     filename: 'index.html',
     inject: 'body'
 });
+
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const extractSass = new ExtractTextPlugin({
+    filename: "[name].[hash].css",
+    disable: process.env.NODE_ENV === "development"
+});
+
 module.exports = {
     // 档案起始点从 entry 进入,可以是多个档案
     entry: [
@@ -43,8 +51,20 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader?modules',],
+                use: ['style-loader', 'css-loader?pages',],
             },
+            {
+                test: /\.scss$/,
+                use: extractSass.extract({
+                    use: [{
+                        loader: "css-loader"
+                    }, {
+                        loader: "sass-loader"
+                    }],
+                    // use style-loader in development
+                    fallback: "style-loader"
+                })
+            }
         ],
     },
     //devServer 则是webpack-dev-server设定
@@ -62,5 +82,7 @@ module.exports = {
         // enable HMR globally
         new webpack.NamedModulesPlugin(),
         // prints more readable module names in the browser console on HMR updates
+        extractSass
+        // sass
     ]
 };

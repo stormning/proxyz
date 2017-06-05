@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.87);
+  line-height: 1.2;
+}
+
+.appContainer {
+  align-items: stretch;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}

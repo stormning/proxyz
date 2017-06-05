@@ -1,0 +1,16 @@
+@import "../helpers/constants";
+
+$max: 100%;
+
+@mixin topWidth() {
+  width: -webkit-calc(#{$max} - #{$leftWith}) !important;
+  width: -moz-calc(#{$max} - #{$leftWith}) !important;
+  width: calc(#{$max} - #{$leftWith}) !important;
+}
+
+.top {
+  @include topWidth();
+  left: auto !important;
+  right: 0 !important;
+  transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
