@@ -2,37 +2,31 @@
 
 $max: 100%;
 
-@mixin topWidth() {
+@mixin rightWidth() {
   width: -webkit-calc(#{$max} - #{$leftWith}) !important;
   width: -moz-calc(#{$max} - #{$leftWith}) !important;
   width: calc(#{$max} - #{$leftWith}) !important;
 }
 
 .top {
-  @include topWidth();
+  @include rightWidth();
   left: auto !important;
   right: 0 !important;
   transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: #fff !important;
+  color: #080808 !important;
+}
+
+.grow {
+  flex: 1 1 auto;
 }
 
 .loginBtn {
+  color: #080808 !important;
   align-items: center;
-  background-color: transparent;
-  border-radius: 50%;
-  color: rgba(0, 0, 0, 0.54);
+  justify-content: center;
   display: inline-flex;
   flex: 0 0 auto;
   font-size: 24px;
   height: 48px;
-  justify-content: center;
-  padding: 0;
-  text-align: center;
-  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  width: 48px;
-  z-index: 1;
-  border: 0 none;
-  cursor: pointer;
-  outline: medium none;
-  position: relative;
-  text-decoration: none;
 }

@@ -10,14 +10,15 @@ import MenuIcon from 'material-ui-icons/Menu'
 
 import '../../../assets/css/pages/top.scss'
 
-const Top = ({className, title}) => (
+const Top = ({className, title, logout}) => (
     <AppBar className="top">
         <Toolbar>
             {/*<IconButton contrast>
                 <MenuIcon />
             </IconButton>*/}
-            <Typography type="title" colorInherit component="h2">{title}</Typography>
-            <Button className="loginBtn" contrast>登陆</Button>
+            <div className="grow">&nbsp;</div>
+            <span>Welcome back, stormning</span>
+            <Button className="loginBtn" contrast onTouchTap={logout}>退出</Button>
         </Toolbar>
     </AppBar>
 );

@@ -4,6 +4,7 @@ const ActionsTypes = keyMirror({
     LOGIN_SUBMIT: null,
     LOGIN_SUCCESS: null,
     LOGIN_FAILED: null,
+    LOGOUT: null,
 
     DASH_VIEW_MORE: null,
 

@@ -10,6 +10,7 @@ import HomeIcon from 'material-ui-icons/Home';
 import GiftIcon from 'material-ui-icons/CardGiftcard';
 import InvitationIcon from 'material-ui-icons/InsertInvitation';
 import SettingsIcon from 'material-ui-icons/Settings';
+import FeedbackIcon from 'material-ui-icons/Feedback';
 import PropTypes from 'prop-types';
 
 import '../../../assets/css/pages/left.scss';
@@ -23,43 +24,39 @@ class Left extends Component {
         return (
             <Drawer docked open className="left">
                 <Toolbar className="left-toolbar" onTouchTap={this.linkTo("/dashboard")}>
-                    {/*<Link to="/">
-                        <Typography type="headline" component="h2">
-                            {this.props.title}
-                        </Typography>
-                    </Link>
-                    <Link to="/">
-                        <Typography type="headline" component="span">
-                            {this.props.version}
-                        </Typography>
-                    </Link>
-                    <Divider inset/>*/}
+                    <h3>Proxy Z</h3>
                     <Divider className="left-toolbar-divider"/>
                 </Toolbar>
                 <List className="left">
-                    <ListItem button onTouchTap={this.linkTo("/dashboard")}>
+                    <ListItem button onTouchTap={()=>this.linkTo("/dashboard")}>
                         <ListItemIcon>
                             <HomeIcon/>
                         </ListItemIcon>
                         <ListItemText primary="首页"/>
                     </ListItem>
-                    <ListItem button onTouchTap={this.linkTo("/plan")}>
+                    <ListItem button onTouchTap={()=>this.linkTo("/plan")}>
                         <ListItemIcon>
                             <GiftIcon/>
                         </ListItemIcon>
                         <ListItemText primary="套餐"/>
                     </ListItem>
-                    <ListItem button onTouchTap={this.linkTo("/invite")}>
+                    <ListItem button onTouchTap={()=>this.linkTo("/invite")}>
                         <ListItemIcon>
                             <InvitationIcon/>
                         </ListItemIcon>
                         <ListItemText primary="邀请"/>
                     </ListItem>
-                    <ListItem button onTouchTap={this.linkTo("/settings")}>
+                    <ListItem button onTouchTap={()=>this.linkTo("/settings")}>
                         <ListItemIcon>
                             <SettingsIcon/>
                         </ListItemIcon>
                         <ListItemText primary="设置"/>
+                    </ListItem>
+                    <ListItem button onTouchTap={()=>this.linkTo("/feedback")}>
+                        <ListItemIcon>
+                            <FeedbackIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary="反馈"/>
                     </ListItem>
                 </List>
             </Drawer>

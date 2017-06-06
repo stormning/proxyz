@@ -1,8 +1,6 @@
 import React from 'react';
-//actions
-import * as actions from '../actions/DashboardActions';
-//component
 import  Home from '../components/pages/Home';
+import  Login from '../components/pages/Login';
 
 import {connectWithRouter} from '../components/Utils';
 

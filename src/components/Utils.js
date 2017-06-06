@@ -46,6 +46,7 @@ const smartConnect = (statePaths, actions) => {
         (dispatch, ownProps) => (
             {...bindActionCreators(actions, dispatch)}
         ) : null;
+    console.log(mapDispatchToProps);
     return connect(mapStateToProps, mapDispatchToProps);
 };
 

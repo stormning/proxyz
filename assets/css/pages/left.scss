@@ -6,10 +6,24 @@
 
 .left {
   @include leftStyle;
+  background-color: #333C44;
+  color: #a1a1a1;
+  h3 {
+    color: #a1a1a1;
+  }
+  svg {
+    fill: #a1a1a1;
+  }
 }
 
 .left-toolbar {
   height: 64px;
+  background-color: #1FBCD2;
+  text-align: center;
+  h3 {
+    color: #fff;
+    font-weight: normal;
+  }
 }
 
 .left-toolbar-divider {
