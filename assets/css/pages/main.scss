@@ -1,3 +1,7 @@
+html, body, #app, .appContainer {
+  height: 100%;
+}
+
 body {
   margin: 0;
   color: rgba(0, 0, 0, 0.87);
@@ -7,13 +11,15 @@ body {
 .appContainer {
   align-items: stretch;
   display: flex;
-  min-height: 100vh;
+  //min-height: 100vh;
   width: 100%;
 }
 
-.appContent{
+.appContent {
   align-items: stretch;
   display: flex;
+  flex: 1 1 auto;
   background-color: #F5F5F5;
   width: 100%;
+  height: 100%;
 }
