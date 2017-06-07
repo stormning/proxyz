@@ -1,7 +1,7 @@
 import React from 'react';
 import {withStyles, createStyleSheet, MuiThemeProvider} from 'material-ui/styles';
 
-import Left from './Left';
+import Left from '../../containers/LeftContainer';
 import Top from '../../containers/TopContainer';
 import '../../../assets/css/pages/main.scss';
 import * as Utils from '../Utils';

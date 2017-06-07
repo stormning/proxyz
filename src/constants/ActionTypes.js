@@ -1,6 +1,8 @@
 import keyMirror from 'keymirror'
 
 const ActionsTypes = keyMirror({
+    LEFT_ITEM_CLICKED: null,
+
     LOGIN_SUBMIT: null,
     LOGIN_SUCCESS: null,
     LOGIN_FAILED: null,

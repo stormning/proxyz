@@ -36,8 +36,8 @@ const smartConnect = (statePaths, actions) => {
     let mapStateToProps = statePaths ?
         (state) => {
             let _ts = {};
-            for (let [name, path] of statePaths) {
-                _ts[name] = state.getIn(path);
+            for (let key of Object.keys(statePaths)) {
+                _ts[key] = state.getIn(statePaths[key]);
             }
             return _ts;
         } : null;
@@ -46,7 +46,6 @@ const smartConnect = (statePaths, actions) => {
         (dispatch, ownProps) => (
             {...bindActionCreators(actions, dispatch)}
         ) : null;
-    console.log(mapDispatchToProps);
     return connect(mapStateToProps, mapDispatchToProps);
 };
 
