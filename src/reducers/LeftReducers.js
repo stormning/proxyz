@@ -7,6 +7,6 @@ const LeftReducers = handleActions({
         return state.setIn(['redirect'], action.payload.redirect)
     }
 }, Immutable.fromJS({
-    redirect: '/'
+    redirect: '/dashboard'
 }));
 export default LeftReducers;

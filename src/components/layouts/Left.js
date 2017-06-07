@@ -1,22 +1,29 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import Drawer from 'material-ui/Drawer';
 import Toolbar, {ToolbarTitle, ToolbarSeparator} from 'material-ui/Toolbar';
 import Divider from 'material-ui/Divider';
 import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
-import HomeIcon from 'material-ui-icons/Home';
-import GiftIcon from 'material-ui-icons/CardGiftcard';
-import InvitationIcon from 'material-ui-icons/InsertInvitation';
-import SettingsIcon from 'material-ui-icons/Settings';
-import FeedbackIcon from 'material-ui-icons/Feedback';
-
-import '../../../assets/css/pages/left.scss';
+import leftConfig from './LeftConfig'
 
 const Left = ({selected = 'dashboard', linkTo, redirect}) => {
 
     const getClasses = (current) => {
-        console.log(redirect);
         return current === redirect ? "selected" : "";
+    };
+
+    const getLeftItems = (itemsConfig) => {
+        let _ret = [];
+        for (let {title, path, icon} of itemsConfig) {
+            _ret.push(
+                <ListItem button onTouchTap={() => linkTo(`${path}`)} className={getClasses(`${path}`)} key={path}>
+                    <ListItemIcon>
+                        {React.createElement(icon)}
+                    </ListItemIcon>
+                    <ListItemText primary={title}/>
+                </ListItem>
+            );
+        }
+        return _ret;
     };
 
     return (
@@ -26,36 +33,7 @@ const Left = ({selected = 'dashboard', linkTo, redirect}) => {
                 <Divider className="left-toolbar-divider"/>
             </Toolbar>
             <List className="left">
-                <ListItem button onTouchTap={() => linkTo("/dashboard")} className={getClasses("dashboard")}>
-                    <ListItemIcon>
-                        <HomeIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="首页"/>
-                </ListItem>
-                <ListItem button onTouchTap={() => linkTo("/plan")} className={getClasses("plan")}>
-                    <ListItemIcon>
-                        <GiftIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="套餐"/>
-                </ListItem>
-                <ListItem button onTouchTap={() => linkTo("/invite")} className={getClasses("invite")}>
-                    <ListItemIcon>
-                        <InvitationIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="邀请"/>
-                </ListItem>
-                <ListItem button onTouchTap={() => linkTo("/settings")} className={getClasses("settings")}>
-                    <ListItemIcon>
-                        <SettingsIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="设置"/>
-                </ListItem>
-                <ListItem button onTouchTap={() => linkTo("/feedback")} className={getClasses("feedback")}>
-                    <ListItemIcon>
-                        <FeedbackIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="反馈"/>
-                </ListItem>
+                {getLeftItems(leftConfig)}
             </List>
         </Drawer>
     )
