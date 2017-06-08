@@ -1,6 +1,8 @@
+@import "../helpers/constants";
+
 html, body {
   height: 100%;
-  background-color: #EFF3F4
+  background-color: $bgColor
 }
 
 body {

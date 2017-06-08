@@ -11,7 +11,7 @@ const Top = ({className, title, logout}) => (
         <Toolbar>
             <div className="grow">&nbsp;</div>
             <span>stormning</span>
-            <Button className="loginBtn" contrast onTouchTap={logout}>退出</Button>
+            <Button className="logoutBtn" contrast onTouchTap={logout}>退出</Button>
         </Toolbar>
     </AppBar>
 );

@@ -2,6 +2,7 @@ import {createStore, applyMiddleware} from 'redux'
 import createHistory from 'history/createBrowserHistory'
 import {routerMiddleware} from 'react-router-redux'
 import rootReducer from '../reducers' // Or wherever you keep your reducers
+import promiseMiddleware from 'redux-promise';
 
 // Create a history of your choosing (we're using a browser history in this case)
 export const history = createHistory();
@@ -13,5 +14,5 @@ const middleware = routerMiddleware(history);
 // Also apply our middleware for navigating
 export const store = createStore(
     rootReducer,
-    applyMiddleware(middleware)
+    applyMiddleware(promiseMiddleware, middleware)
 );

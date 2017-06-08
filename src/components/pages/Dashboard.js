@@ -7,6 +7,7 @@ import LoginForm from './Login';
 
 const Dashboard = () => (
     <h1>this is dashboard</h1>
+
 );
 
 export default Dashboard;

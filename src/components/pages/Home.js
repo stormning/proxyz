@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {withStyles, createStyleSheet} from 'material-ui/styles';
 import {Router, Link} from 'react-router-dom';
 

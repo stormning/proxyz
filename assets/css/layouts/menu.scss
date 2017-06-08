@@ -1,35 +1,32 @@
 @import "../helpers/constants";
 
-@mixin leftStyle {
-  width: $leftWith !important;
-}
-
-.left {
-  @include leftStyle;
-  background-color: #333C44;
-  color: #a1a1a1;
+.menu {
+  flex-direction: column;
+  background-color: $dark;
+  color: $gray;
+  width: $leftWith;
   h3 {
-    color: #a1a1a1;
+    color: $gray;
   }
   svg {
-    fill: #a1a1a1;
+    fill: $gray;
   }
   .selected {
     h3 {
-      color: #fff;
+      color: $bgColor;
     }
     svg {
-      fill: #fff;
+      fill: $bgColor;
     }
   }
 }
 
-.left-toolbar {
+.menu-toolbar {
   height: 64px;
-  background-color: #2B98F0;
+  background-color: $bright;
   text-align: center;
   h3 {
-    color: #fff;
+    color: $white;
     font-weight: normal;
   }
 }

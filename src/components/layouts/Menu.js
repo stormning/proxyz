@@ -5,7 +5,7 @@ import Divider from 'material-ui/Divider';
 import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
 import leftConfig from './LeftConfig'
 
-const Left = ({selected = 'dashboard', linkTo, redirect}) => {
+const Menu = ({selected = 'dashboard', linkTo, redirect}) => {
 
     const getClasses = (current) => {
         return current === redirect ? "selected" : "";
@@ -27,15 +27,15 @@ const Left = ({selected = 'dashboard', linkTo, redirect}) => {
     };
 
     return (
-        <Drawer docked open className="left">
-            <Toolbar className="left-toolbar" onTouchTap={() => linkTo("/dashboard")}>
+        <Drawer docked open className="menu">
+            <Toolbar className="menu-toolbar" onTouchTap={() => linkTo("/dashboard")}>
                 <h3>Proxy Z</h3>
                 <Divider className="left-toolbar-divider"/>
             </Toolbar>
-            <List className="left">
+            <List className="menu">
                 {getLeftItems(leftConfig)}
             </List>
         </Drawer>
     )
 };
-export default Left;
+export default Menu;

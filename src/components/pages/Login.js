@@ -40,9 +40,9 @@ const styleSheet = createStyleSheet('LoginForm', theme => ({
     },
     loginContainer: {
         padding: '0px 20px',
-        display: 'flex',
-        flexWrap: 'wrap',
-        flexDirection: 'column'
+        display: 'block',
+        //flexWrap: 'wrap',
+        //flexDirection: 'column'
     },
     appContainer: {
         display: 'flex',
@@ -56,8 +56,7 @@ const styleSheet = createStyleSheet('LoginForm', theme => ({
         margin: '20px',
         backgroundColor: '#2B98F0',
         color: '#fff',
-        alignSelf: 'flex-end'
-
+        float: 'right'
     }
 }));
 
