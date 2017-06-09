@@ -14,7 +14,7 @@ import {history} from '../../store';
 
 import '../../../assets/css/layouts/base.scss';
 
-const styleSheet = createStyleSheet('LoginForm', theme => ({
+const styleSheet = createStyleSheet('Login', theme => ({
     header: {
         height: '200px',
         backgroundColor: '#2B98F0',
@@ -60,7 +60,7 @@ const styleSheet = createStyleSheet('LoginForm', theme => ({
     }
 }));
 
-class LoginForm extends Component {
+class Login extends Component {
     state = {
         email: '',
         password: '',
@@ -96,7 +96,7 @@ class LoginForm extends Component {
                             <Input id="email" value={this.state.email} onChange={this.handleNameChange}/>
                         </FormControl>
                         <FormControl className={classes.input} error={this.state.error}>
-                            <InputLabel htmlFor="name">
+                            <InputLabel htmlFor="password">
                                 密码
                             </InputLabel>
                             <Input id="password" value={this.state.password} onChange={this.handlePasswordChange}/>
@@ -111,8 +111,8 @@ class LoginForm extends Component {
     }
 }
 
-LoginForm.propTypes = {
+Login.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default connectWithRouter(withStyles(styleSheet)(LoginForm));
+export default connectWithRouter(withStyles(styleSheet)(Login));

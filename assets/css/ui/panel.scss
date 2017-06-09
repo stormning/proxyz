@@ -1,0 +1,43 @@
+.panel {
+  padding: 30px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.panel-title {
+  position: relative;
+}
+
+.panel-label-container {
+  position: absolute;
+  text-align: left;
+  font-size: 12px;
+  top: -10px;
+}
+
+.panel-label {
+  display: inline-block;
+  margin-right: 10px;
+  span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #EFF3F4;
+    margin-right: 5px;
+  }
+  height: 16px;
+}
+
+.panel-content {
+
+}
+
+.panel-more {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-decoration: none;
+  color: #2B98F0;
+  font-size: 12px;
+}
