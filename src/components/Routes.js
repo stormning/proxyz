@@ -3,6 +3,7 @@ import Login from 'bundle-loader?lazy&name=app-[name]!../components/pages/Login'
 import MainContainer from 'bundle-loader?lazy&name=app-[name]!../containers/MainContainer';
 import HomeContainer from 'bundle-loader?lazy&name=app-[name]!../containers/HomeContainer';
 import DashboardContainer from 'bundle-loader?lazy&name=app-[name]!../containers/DashboardContainer';
+import PlanContainer from 'bundle-loader?lazy&name=app-[name]!../containers/PlanContainer';
 
 const routesConfig = [
     {
@@ -22,6 +23,11 @@ const routesConfig = [
                 path: '/dashboard',
                 exact: true,
                 component: DashboardContainer
+            },
+            {
+                path: '/plan',
+                exact: true,
+                component: PlanContainer
             }
         ]
     }
