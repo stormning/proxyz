@@ -12,7 +12,6 @@ class Panel extends PureComponent {
                     {this.props.more && <Link to={this.props.more} className="panel-more">更多</Link>}
                     {this.props.labels && <div className="panel-label-container">{this.props.labels.map(
                         (label) => {
-                            console.log(label);
                             return <div className="panel-label"><span
                                 style={{backgroundColor: label.color}}>&nbsp;</span>{label.label}
                             </div>

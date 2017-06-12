@@ -21,6 +21,11 @@ const chartColors = {
 const randomScalingFactor = function () {
     return Math.round(Math.random() * 1000)
 };
+
+const fetchData = ()=>(
+    [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
+);
+
 const lineChartData = {
     labels: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
     datasets: [
@@ -31,8 +36,8 @@ const lineChartData = {
             pointColor: chartColors.blue,
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
+            pointHighlightStroke: chartColors.green,
+            data: fetchData()
         },
         {
             label: "本月剩余",
@@ -41,8 +46,8 @@ const lineChartData = {
             pointColor: chartColors.red,
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
+            pointHighlightStroke: chartColors.orange,
+            data: fetchData()
         }
     ]
 };
@@ -56,10 +61,10 @@ const chartOptions = {
 
 const labels = [{
     color: chartColors.blue,
-    label: "使用量"
+    label: "使用量(M)"
 }, {
     color: chartColors.red,
-    label: "本月剩余"
+    label: "本月剩余(M)"
 }
 ];
 
