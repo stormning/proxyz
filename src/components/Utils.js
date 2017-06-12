@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Bundle from './Bundle';
 import {bindActionCreators} from 'redux'
 import {Route, Switch} from 'react-router-dom';
@@ -50,3 +50,19 @@ const smartConnect = (statePaths, actions) => {
 };
 
 export const connectWithRouter = (component, statePaths, actions) => withRouter(smartConnect(statePaths, actions)(component));
+
+
+export const HC = (comp, actionArguments) => class extends Component {
+    componentWillMount() {
+        actionArguments &&
+        Object.keys(actionArguments).map((action) => {
+            console.log(action);
+                console.log(this.props[action]);
+                this.props[action].apply(actionArguments[action]);
+            }
+        )
+    }
+    render() {
+        return comp(this.props);
+    }
+};
