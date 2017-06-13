@@ -3,4 +3,4 @@ import  Plan from '../components/pages/Plan';
 import {connectWithRouter, HC} from '../components/Utils';
 import * as Actions from '../actions/PlanActions'
 
-export default connectWithRouter(HC(Plan, {"planLoad": []}), {}, Actions);
+export default connectWithRouter(HC(Plan, {"planLoad": []}), {"plans": ["plan", "plans"]}, Actions);

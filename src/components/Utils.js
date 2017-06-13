@@ -35,6 +35,7 @@ const smartConnect = (statePaths, actions) => {
     //use immutable js
     let mapStateToProps = statePaths ?
         (state) => {
+            // console.log(state);
             let _ts = {};
             for (let key of Object.keys(statePaths)) {
                 _ts[key] = state.getIn(statePaths[key]);
@@ -56,12 +57,11 @@ export const HC = (comp, actionArguments) => class extends Component {
     componentWillMount() {
         actionArguments &&
         Object.keys(actionArguments).map((action) => {
-            console.log(action);
-                console.log(this.props[action]);
                 this.props[action].apply(actionArguments[action]);
             }
         )
     }
+
     render() {
         return comp(this.props);
     }
