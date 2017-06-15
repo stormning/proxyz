@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import {Link} from 'react-router-dom';
 import Paper from 'material-ui/Paper';
-import '../../../assets/css/ui/panel.scss'
+import '../../assets/css/ui/panel.scss'
 
 class Panel extends PureComponent {
     render() {

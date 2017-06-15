@@ -4,7 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Button from 'material-ui/Button';
 
-import '../../../assets/css/layouts/top.scss'
+import '../../assets/css/layouts/top.scss'
 
 const Top = ({className, title, logout}) => (
     <AppBar className="top">

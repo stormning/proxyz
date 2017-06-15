@@ -1,12 +1,30 @@
 {
-  "mac" : {
+  "mac": {
     "title": "proxyz",
     "background": "assets/osx/background.png",
     "icon": "assets/osx/logo.icns",
     "icon-size": 128,
     "contents": [
-      { "x": 355, "y": 125, "type": "link", "path": "/Applications" },
-      { "x": 155, "y": 125, "type": "file" }
+      {
+        "x": 355,
+        "y": 125,
+        "type": "link",
+        "path": "/Applications"
+      },
+      {
+        "x": 155,
+        "y": 125,
+        "type": "file"
+      }
+    ],
+    "files": [
+      "dist/",
+      //      "node_modules/",
+      //      "app.html",
+      //      "main.prod.js",
+      //      "main.prod.js.map",
+      "main.js",
+      "package.json"
     ]
   }
 }

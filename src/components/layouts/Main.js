@@ -3,7 +3,7 @@ import {withStyles, createStyleSheet, MuiThemeProvider} from 'material-ui/styles
 
 import Menu from '../../containers/MenuContainer';
 import Top from '../../containers/TopContainer';
-import '../../../assets/css/layouts/main.scss';
+import '../../assets/css/layouts/main.scss';
 import * as Utils from '../Utils';
 
 const Main = ({route, version = '1.0.0-alpha', title = 'ProxyZ'}) => (

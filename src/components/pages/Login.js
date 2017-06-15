@@ -12,7 +12,7 @@ import {withStyles, createStyleSheet} from 'material-ui/styles';
 
 import {history} from '../../store';
 
-import '../../../assets/css/layouts/base.scss';
+import '../../assets/css/layouts/base.scss';
 
 const styleSheet = createStyleSheet('Login', theme => ({
     header: {

@@ -4,7 +4,7 @@ import InvitationIcon from 'material-ui-icons/InsertInvitation';
 import SettingsIcon from 'material-ui-icons/Settings';
 import FeedbackIcon from 'material-ui-icons/Feedback';
 
-import '../../../assets/css/layouts/menu.scss';
+import '../../assets/css/layouts/menu.scss';
 
 export default [
     {
