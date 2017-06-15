@@ -1,5 +1,5 @@
 import {createStore, applyMiddleware} from 'redux'
-import createHistory from 'history/createBrowserHistory'
+import createHistory from 'history/createHashHistory'
 import {routerMiddleware} from 'react-router-redux'
 import rootReducer from '../reducers' // Or wherever you keep your reducers
 import promiseMiddleware from 'redux-promise';

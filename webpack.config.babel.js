@@ -1,7 +1,8 @@
 //这边使用 HtmlWebpackPlugin，将 bundle 好的 <script> 插入到 body
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {resolve} = require('path');
-const webpack = require('webpack');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import {resolve} from 'path';
+import webpack from 'webpack';
+import {spawn, execSync} from 'child_process';
 
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
     template: `${__dirname}/src/index.html`,
@@ -11,9 +12,14 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+const isDev = process.env.NODE_ENV === "development" || process.env.DEBUG;
+
+//path for dev server
+const publicPath = isDev ? 'http://localhost:8080/' : './';
+
 const extractSass = new ExtractTextPlugin({
     filename: "[name].[hash].css",
-    disable: process.env.NODE_ENV === "development"
+    disable: isDev
 });
 
 module.exports = {
@@ -37,17 +43,25 @@ module.exports = {
     devtool: 'inline-source-map',
     output: {
         path: resolve(__dirname, 'dist'),
-        filename: 'bundle-[hash].js',
-        // the output bundle
-        publicPath: '/'
+        publicPath: publicPath,
         // necessary for HMR to know where to load the hot update chunks
+        filename: 'bundle.js'
+        // the output bundle
     },
     module: {
         rules: [
             {
                 test: /\.js?$/,
-                use: ['babel-loader',],
-                exclude: /node_modules/
+                // use: ['babel-loader',],
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: "babel-loader",
+                        options: {
+                            "presets": [["es2015", {"modules": false}], "react", "stage-2"]
+                        }
+                    }
+                ]
             },
             {
                 test: /\.css$/,
@@ -75,12 +89,27 @@ module.exports = {
     devServer: {
         hot: true,
         //enable HMR on the server
-        contentBase: resolve(__dirname, 'dist'),
+        // contentBase: resolve(__dirname, 'dist'),
+        contentBase: './dist',
         //match output path
-        publicPath: '/'
+        publicPath: publicPath,
         //match output `publicPath`
+        setup() {
+            if (process.env.DESKTOP) {
+                spawn(
+                    'npm',
+                    ['run', 'start-desktop'],
+                    {shell: true, env: process.env, stdio: 'inherit'}
+                )
+                    .on('close', code => process.exit(code))
+                    .on('error', spawnError => console.error(spawnError));
+            }
+        }
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'product'),
+        }),
         HTMLWebpackPluginConfig,
         new webpack.HotModuleReplacementPlugin(),
         // enable HMR globally
@@ -88,5 +117,6 @@ module.exports = {
         // prints more readable module names in the browser console on HMR updates
         extractSass
         // sass
-    ]
+    ]/*,
+     target: 'electron-renderer'*/
 };

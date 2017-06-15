@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {withStyles, createStyleSheet} from 'material-ui/styles';
 import Panel from '../ui/Pannel';
 
-import Grid from 'material-ui/Grid';
-import LoginForm from './Login';
 
 import {Line} from 'react-chartjs';
 
@@ -18,39 +15,6 @@ const chartColors = {
     grey: 'rgb(201, 203, 207)'
 };
 
-const randomScalingFactor = function () {
-    return Math.round(Math.random() * 1000)
-};
-
-const fetchData = ()=>(
-    [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
-);
-
-const lineChartData = {
-    labels: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
-    datasets: [
-        {
-            label: "使用量",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: chartColors.blue,
-            pointColor: chartColors.blue,
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: chartColors.green,
-            data: fetchData()
-        },
-        {
-            label: "本月剩余",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: chartColors.red,
-            pointColor: chartColors.red,
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: chartColors.orange,
-            data: fetchData()
-        }
-    ]
-};
 const chartOptions = {
     responsive: true,
     title: {
@@ -68,12 +32,57 @@ const labels = [{
 }
 ];
 
-const Dashboard = () => (
-    <div>
-        <Panel title="流量统计" more="/more" labels={labels}>
-            <Line data={lineChartData} options={chartOptions}/>
-        </Panel>
-    </div>
+const getData = ({days, used, left}) => (
+    {
+        labels: days || [],
+        datasets: [
+            {
+                label: "使用量",
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: chartColors.blue,
+                pointColor: chartColors.blue,
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: chartColors.green,
+                data: used || []
+            },
+            {
+                label: "本月剩余",
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: chartColors.red,
+                pointColor: chartColors.red,
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: chartColors.orange,
+                data: left || []
+            }
+        ]
+    }
 );
+
+const Dashboard = ({usageData}) => {
+    const {totalUsed, weekUsed, totalLeft} = usageData;
+    return (
+        <div>
+           {/* <Panel style={{marginBottom: '30px'}} key="panel0">
+                <div>
+                    已用
+                    {totalUsed}
+                </div>
+                <div>
+                    本周
+                    {weekUsed}
+                </div>
+                <div>
+                    剩余
+                    {totalLeft}
+                </div>
+            </Panel>*/}
+            <Panel title="流量统计" more="/more" labels={labels} key="panel1">
+                <Line data={getData(usageData)} options={chartOptions}/>
+            </Panel>
+        </div>
+    )
+};
 
 export default Dashboard;

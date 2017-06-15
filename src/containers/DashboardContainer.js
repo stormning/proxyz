@@ -1,5 +1,6 @@
-import React from 'react';
+import  React from 'react';
 import  Dashboard from '../components/pages/Dashboard';
-import {connectWithRouter} from '../components/Utils';
+import {connectWithRouter, HC} from '../components/Utils';
+import * as Actions from '../actions/DashboardActions'
 
-export default connectWithRouter(Dashboard);
+export default connectWithRouter(HC(Dashboard, {'dashboardLoad': []}), {"usageData": ['dashboard', 'usageData']}, Actions);

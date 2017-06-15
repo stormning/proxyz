@@ -12,6 +12,8 @@ const ActionsTypes = keyMirror({
 
     PLAN_LOAD: null,
 
+    DASHBOARD_LOAD: null,
+
     CLICK_DRAWER_ICON: null,
     CLICK_DRAWER_ITEM: null,
     CLICK_DRAWER_MENU: null,

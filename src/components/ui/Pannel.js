@@ -6,7 +6,7 @@ import '../../../assets/css/ui/panel.scss'
 class Panel extends PureComponent {
     render() {
         return (
-            <Paper className="panel">
+            <Paper className="panel" style={this.props.style}>
                 <div className="panel-title">
                     {this.props.title}
                     {this.props.more && <Link to={this.props.more} className="panel-more">更多</Link>}

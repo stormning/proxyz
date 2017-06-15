@@ -4,8 +4,10 @@ import left from './MenuReducers';
 import login from './LoginReducers';
 import top from './TopReducers';
 import plan from './PlanReducers';
+import dashboard from './DashboardReducers';
 
 export default combineReducers({
+    dashboard,
     left,
     login,
     top,
