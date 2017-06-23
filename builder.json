@@ -1,9 +1,14 @@
 {
-  "mac": {
+  "asar": false,
+  "files": [
+    "build/**/*",
+    "node_modules/**/*",
+    "main.js",
+    "package.json"
+  ],
+  "dmg": {
     "title": "proxyz",
-    "background": "assets/osx/background.png",
-    "icon": "assets/osx/logo.icns",
-    "icon-size": 128,
+    "icon": "src/assets/images/logo.icns",
     "contents": [
       {
         "x": 355,
@@ -16,15 +21,6 @@
         "y": 125,
         "type": "file"
       }
-    ],
-    "files": [
-      "dist/",
-      //      "node_modules/",
-      //      "app.html",
-      //      "main.prod.js",
-      //      "main.prod.js.map",
-      "main.js",
-      "package.json"
     ]
   }
 }

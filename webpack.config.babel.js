@@ -42,7 +42,7 @@ module.exports = {
     //使打包后的错误信息精确到行
     devtool: 'inline-source-map',
     output: {
-        path: resolve(__dirname, 'dist'),
+        path: resolve(__dirname, 'build'),
         publicPath: publicPath,
         // necessary for HMR to know where to load the hot update chunks
         filename: 'bundle.js'
@@ -90,7 +90,7 @@ module.exports = {
         hot: true,
         //enable HMR on the server
         // contentBase: resolve(__dirname, 'dist'),
-        contentBase: './dist',
+        contentBase: './build',
         //match output path
         publicPath: publicPath,
         //match output `publicPath`
